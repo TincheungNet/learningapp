@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "zHc7gv2OzGs=",
+  "dgSpecHash": "Rh/3yP9Bp1Y=",
   "success": true,
   "projectFilePath": "C:\\Users\\tileung\\source\\repos\\AZ204\\app_1\\learningapp\\learningapp.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\tileung\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

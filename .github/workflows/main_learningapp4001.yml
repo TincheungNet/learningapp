@@ -26,20 +26,22 @@ jobs:
 
       - name: Restore NuGet packages
         run: nuget restore
-    
+
       - name: Publish to folder
         run: |
           mkdir \published\
-          msbuild /nologo /verbosity:m /t:Build /t:pipelinePreDeployCopyAllFilesToOneFolder /p:_PackageTempDir="\published\"
+          msbuild /nologo /verbosity:m /t:Build /p:OutDir="\published\"
 
-      - name: List files in published directory
-        run: dir \published\
+      - name: Verify files in published directory
+        run: |
+          echo "Listing files in /published/"
+          dir \published\
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: ASP-app
-          path: '/published/**'
+          path: \published\
 
   deploy:
     runs-on: windows-latest

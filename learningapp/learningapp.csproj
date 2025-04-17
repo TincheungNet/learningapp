@@ -10,4 +10,11 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
+  <Target Name="pipelinePreDeployCopyAllFilesToOneFolder">
+    <CreateItem Include="$(OutputPath)**\*">
+      <Output TaskParameter="Include" ItemName="AllFilesInOutput" />
+    </CreateItem>
+    <Copy SourceFiles="@(AllFilesInOutput)" DestinationFolder="$(OutputPath)\..\Published" />
+  </Target>
+
 </Project>
